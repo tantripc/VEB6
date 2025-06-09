@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/backend/VEBRARY6/.vs
+/backend/VEBRARY6/bin/Debug/net8.0
+/backend/VEBRARY6/obj
+/backend/VEBRARY6/Properties

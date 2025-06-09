@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36109.1 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VEBRARY6", "VEBRARY6.csproj", "{9656AEFD-BF1A-441D-9A55-DBEF865B67FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9656AEFD-BF1A-441D-9A55-DBEF865B67FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9656AEFD-BF1A-441D-9A55-DBEF865B67FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9656AEFD-BF1A-441D-9A55-DBEF865B67FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9656AEFD-BF1A-441D-9A55-DBEF865B67FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B7510BCC-D4F5-4AFE-BD6F-70B9C74970D3}
+	EndGlobalSection
+EndGlobal

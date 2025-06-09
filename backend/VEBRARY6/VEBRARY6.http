@@ -1,0 +1,6 @@
+@VEBRARY6_HostAddress = http://localhost:5156
+
+GET {{VEBRARY6_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
