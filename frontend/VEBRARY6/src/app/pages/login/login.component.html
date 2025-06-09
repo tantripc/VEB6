@@ -5,11 +5,10 @@
       <div>
         <label>Email</label>
         <input
-          type="email"
-          name="email"
-          [(ngModel)]="email"
+          type="text"
+          name="username"
+          [(ngModel)]="username"
           required
-          email
         />
       </div>
   
@@ -24,6 +23,6 @@
         />
       </div>
   
-      <button type="submit" [disabled]="!loginForm.valid">Đăng nhập</button>
+      <button type="submit">Đăng nhập</button>
     </form>
   </div>

@@ -1,19 +1,27 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  email = '';
-  password = '';
+  username: string = '';
+  password: string = '';
+
+  constructor(private authService: AuthService) { }
 
   onSubmit() {
-    if (this.email === 'admin@example.com' && this.password === '123456') {
-      alert('Đăng nhập thành công!');
-    } else {
-      alert('Sai tài khoản hoặc mật khẩu.');
-    }
+    this.authService.login(this.username, this.password).subscribe(
+      (response) => {
+        console.log('Login successful:', response);
+        // Xử lý logic sau khi đăng nhập thành công
+      },
+      (error) => {
+        console.error('Login failed:', error);
+        // Xử lý lỗi đăng nhập
+      }
+    );
   }
 }
