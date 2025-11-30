@@ -22,4 +22,10 @@ export class ProductItemComponent {
   handleDelete = (id: number) => {
     this.dataEvent.emit(id);
   }
+
+  // Getter
+  get totalPrice(): string {
+    const sum = this.products.reduce((total, item) => { return total + item.price }, 0);
+    return `Total price: ${new CurrencyVNPipe().transform(sum)}`;
+  }
 }
