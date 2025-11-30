@@ -1,4 +1,5 @@
-﻿using MW.Entities;
+﻿using MW.DTO;
+using MW.Entities;
 
 namespace MW.Repositories
 {
@@ -10,5 +11,8 @@ namespace MW.Repositories
         Task<Product> Add(Product product);
         Task Update(Product product);
         Task Delete(int id);
+        Task<List<SaleOrderCompactDto>> GetSaleOrderNumbersAsync(SaleOrderFilterDto filter, bool isAdmin, string userName);
+        Task<bool> CheckRefundAsync(Guid saleId, string storeCode);
+        Task<List<RefundHeader>> GetAllBySaleOrderIdCODAsync(Guid id);
     }
 }

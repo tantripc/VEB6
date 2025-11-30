@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using MW.DTO;
 using MW.Repositories;
 
 namespace MW.Controllers
@@ -25,6 +26,27 @@ namespace MW.Controllers
         {
             var result = await _repo.GetById(id);
             return result == null ? NotFound() : Ok(result);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> GetOrderNumber(SaleOrderFilterDto filter)
+        {
+
+            try
+            {
+                filter.StatusId = 3;
+                filter.HasAllPermission = true;
+                filter.Refunded = false;
+                filter.CreatedBy = "hien.cao";
+
+                var dto = await _repo.GetSaleOrderNumbersAsync(filter, true, "hien.cao");
+                return Ok(dto);
+            }
+            catch (Exception ex)
+            {
+                //this.LogError(this, ex);
+            }
+            return NotFound();
         }
     }
 }

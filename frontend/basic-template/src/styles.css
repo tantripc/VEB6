@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+h1{
+    padding: 3rem;
+    margin: 0;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+}
+.main{
+    font-family: 'Montserrat', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+a.btn {cursor: pointer;}

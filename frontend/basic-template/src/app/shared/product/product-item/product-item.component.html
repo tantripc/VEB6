@@ -1,0 +1,22 @@
+<div class="group-cart">
+      <div class="header-cart">
+        <div class="col-1">#</div>
+        <div class="col-2">Name</div>
+        <div class="col-3">Price</div>
+        <div class="col-4">Action</div>
+      </div>
+      <div class="body-cart">
+        <div class="row-cart" *ngFor="let product of products">
+          <div>
+            <div class="col-1">{{product.id}}</div>
+            <div class="col-2"><a [routerLink]="['/detail', product.id]">{{ product.name | upperCase }} </a></div>
+            <div class="col-3">{{ product.price | currencyVN}}</div>
+            <div class="col-4">
+              <a class="btn" data-target="#" (click)="handleDelete(product.id)">
+                <i class="fa-solid fa-trash"></i>
+              </a>
+            </div>
+          </div>
+      </div>
+      </div>
+    </div>
