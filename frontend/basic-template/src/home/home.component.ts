@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ProductItemComponent } from "../app/shared/product/product-item/product-item.component";
 import { ProductItems } from '../types/productItem';
+import { BlogService } from '../services/BlogService';
+import { map, Subscription } from 'rxjs';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -9,7 +11,28 @@ import { ProductItems } from '../types/productItem';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit, OnDestroy {
+  getAPIBlogs: Subscription;
+
+  constructor(private blogService: BlogService) {
+    this.getAPIBlogs = new Subscription();
+  }
+  ngOnInit(): void {
+    // Example of HTTP GET request
+    this.getAPIBlogs = this.blogService.getBlogs()
+      .pipe(map(({ data }) => data.map((item: any, index: number) => {
+        return { ...item, id: ++index, name: item.title, price: parseInt(item.body) }
+      })
+      ))
+      .subscribe((res) => {
+        this.products = res;
+      });
+  }
+  ngOnDestroy(): void {
+    if (this.getAPIBlogs)
+      this.getAPIBlogs.unsubscribe();
+  }
+
   isVisible: boolean = false;
   products: ProductItems[] = [
     { id: 1, name: 'Sản phẩm 1', price: 100000, isVisible: true },
