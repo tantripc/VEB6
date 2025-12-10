@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="FileUtility.cs" />
+    <Compile Remove="ImageUtility.cs" />
+    <Compile Remove="MailUtility.cs" />
+    <Compile Remove="ReflectorUtility.cs" />
+    <Compile Remove="SMSUtility.cs" />
+    <Compile Remove="XlsxUtility.cs" />
+    <Compile Remove="XmlUtility.cs" />
+    <Compile Remove="XsltUtility.cs" />
+  </ItemGroup>
+
+</Project>

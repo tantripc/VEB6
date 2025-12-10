@@ -30,3 +30,11 @@
 /backend/Middleware/MiddlewareTool/Properties
 /backend/Middleware/MiddlewareTool.Entities/bin/Debug/net8.0
 /backend/Middleware/MiddlewareTool.Entities/obj
+/backend/Middleware/MiddlewareTool.Common/bin/Debug/net8.0
+/backend/Middleware/MiddlewareTool.Common/obj
+/backend/Middleware/MiddlewareTool.Dto/bin/Debug/net8.0
+/backend/Middleware/MiddlewareTool.Dto/obj
+/backend/Middleware/MiddlewareTool.Logs/bin/Debug/net8.0
+/backend/Middleware/MiddlewareTool.Logs/obj
+/backend/Middleware/MiddlewareTool.Utility/bin/Debug/net8.0
+/backend/Middleware/MiddlewareTool.Utility/obj

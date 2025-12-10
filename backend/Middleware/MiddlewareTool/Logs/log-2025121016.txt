@@ -1,0 +1,20 @@
+2025-12-10 16:01:41.256 +07:00 [INF] Now listening on: https://localhost:7166
+2025-12-10 16:01:41.282 +07:00 [INF] Now listening on: http://localhost:5279
+2025-12-10 16:01:41.402 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-10 16:01:41.403 +07:00 [INF] Hosting environment: Development
+2025-12-10 16:01:41.403 +07:00 [INF] Content root path: D:\SOURCE\VEB6\backend\Middleware\MiddlewareTool
+2025-12-10 16:01:43.377 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7166/swagger/index.html - null null
+2025-12-10 16:01:43.667 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7166/swagger/index.html - 200 null text/html;charset=utf-8 296.4591ms
+2025-12-10 16:01:43.692 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7166/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-10 16:01:43.692 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7166/_vs/browserLink - null null
+2025-12-10 16:01:43.706 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7166/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 14.0242ms
+2025-12-10 16:01:43.842 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7166/_vs/browserLink - 200 null text/javascript; charset=UTF-8 150.3404ms
+2025-12-10 16:01:43.987 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7166/swagger/v1/swagger.json - null null
+2025-12-10 16:01:44.042 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7166/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 55.9591ms
+2025-12-10 16:01:47.735 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7166/Account - null 0
+2025-12-10 16:01:47.746 +07:00 [INF] Executing endpoint 'MiddlewareTool.Controllers.AccountController.Login (MiddlewareTool)'
+2025-12-10 16:01:47.778 +07:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller MiddlewareTool.Controllers.AccountController (MiddlewareTool).
+2025-12-10 16:01:47.790 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-10 16:01:47.806 +07:00 [INF] Executed action MiddlewareTool.Controllers.AccountController.Login (MiddlewareTool) in 23.3856ms
+2025-12-10 16:01:47.806 +07:00 [INF] Executed endpoint 'MiddlewareTool.Controllers.AccountController.Login (MiddlewareTool)'
+2025-12-10 16:01:47.807 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7166/Account - 200 null application/json; charset=utf-8 71.9237ms

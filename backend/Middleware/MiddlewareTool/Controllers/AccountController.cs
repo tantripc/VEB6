@@ -6,11 +6,8 @@ namespace MiddlewareTool.Controllers
     [Route("[controller]")]
     public class AccountController : ControllerBase
     {
-        private readonly ILogger<AccountController> _logger;
-
-        public AccountController(ILogger<AccountController> logger)
+        public AccountController()
         {
-            _logger = logger;
         }
 
         [HttpPost(Name = "login")]
