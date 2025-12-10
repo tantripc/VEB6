@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using MiddlewareTool.Business.Interface;
 using MiddlewareTool.Entities;
 using Serilog;
 using System.Text;
@@ -71,6 +72,8 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
+
+builder.Services.AddScoped<IUserInfoBusiness>();
 
 var app = builder.Build();
 

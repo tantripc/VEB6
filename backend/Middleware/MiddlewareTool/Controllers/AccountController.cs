@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using MiddlewareTool.Business.Interface;
 using MiddlewareTool.Logs;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -10,8 +11,11 @@ namespace MiddlewareTool.Controllers
 {
     public class AccountController : BaseController
     {
-        public AccountController(IConfiguration config) : base(config)
-        { }
+        private readonly IUserInfoBusiness _business;
+        public AccountController(IConfiguration config, IUserInfoBusiness business) : base(config)
+        {
+            _business = business;
+        }
 
         [HttpPost(Name = "login")]
         public IActionResult Login(LoginModel model, string returnUrl = "")

@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MiddlewareTool.Business\MiddlewareTool.Business.csproj" />
     <ProjectReference Include="..\MiddlewareTool.Dto\MiddlewareTool.Dto.csproj" />
     <ProjectReference Include="..\MiddlewareTool.Entities\MiddlewareTool.Entities.csproj" />
   </ItemGroup>

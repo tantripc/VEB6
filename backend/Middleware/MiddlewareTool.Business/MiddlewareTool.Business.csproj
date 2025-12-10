@@ -7,8 +7,31 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Concrete\" />
-    <Folder Include="Interface\" />
+    <Compile Remove="Concrete\**" />
+    <Compile Remove="Interface\**" />
+    <EmbeddedResource Remove="Concrete\**" />
+    <EmbeddedResource Remove="Interface\**" />
+    <None Remove="Concrete\**" />
+    <None Remove="Interface\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Concrete\BaseBusiness\BaseBusiness.cs" />
+    <Compile Include="Concrete\UserMgmtBusiness\UserInfoBusiness.cs" />
+    <Compile Include="Interface\IUserMgmtBusiness\IUserInfoBusiness.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MiddlewareTool.Dto\MiddlewareTool.Dto.csproj" />
+    <ProjectReference Include="..\MiddlewareTool.Entities\MiddlewareTool.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Interface\IBaseBusiness\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
   </ItemGroup>
 
 </Project>

@@ -17,7 +17,7 @@ namespace MiddlewareTool.Dto
             public string HomePhone { get; set; }
             public bool IsActive { get; set; }
             public string Ext { get; set; }
-            public DateTime? Birthday { get; set; }
+            public DateOnly? Birthday { get; set; }
             public bool? Gender { get; set; }
             public string LanguageCode { get; set; }
             public string RoleName { get; set; }
