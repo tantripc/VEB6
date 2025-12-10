@@ -264,7 +264,7 @@ namespace MiddlewareTool.Business.Concrete
         public async Task<bool> UpdateAddRoleAsync(UserInfoDto dto, List<Guid> lstRoleId)
         {
             bool result = false;
-            var dbtransaction = this.UnitOfWork.BeginTransaction();
+            var dbtransaction = this.UnitOfWork.Database.BeginTransaction();
             try
             {
                 //Update port username
