@@ -1,4 +1,5 @@
 ﻿using MiddlewareTool.Common;
+using System.ComponentModel.DataAnnotations;
 using static MiddlewareTool.Dto.StoreMgmtDto;
 
 namespace MiddlewareTool.Dto
@@ -196,6 +197,16 @@ namespace MiddlewareTool.Dto
             {
                 this.LstDept = new List<DictDeptDto>();
             }
+        }
+        public class LoginModel
+        {
+            public string UserName { get; set; }
+            public string Password { get; set; }
+            public bool RememberMe { get; set; } = false;
+        }
+        public class LoginResultDto
+        {
+            public string Token { get; set; }
         }
     }
 }

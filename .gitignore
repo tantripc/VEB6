@@ -38,3 +38,5 @@
 /backend/Middleware/MiddlewareTool.Logs/obj
 /backend/Middleware/MiddlewareTool.Utility/bin/Debug/net8.0
 /backend/Middleware/MiddlewareTool.Utility/obj
+/backend/Middleware/MiddlewareTool.Business/obj
+/backend/Middleware/MiddlewareTool.Business/bin/Debug/net8.0
