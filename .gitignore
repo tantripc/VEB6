@@ -24,3 +24,9 @@
 /backend/MW2/MW/.vs/MW/CopilotIndices/17.14.670.39694/SemanticSymbols.db-wal
 /frontend/MW/.angular/cache/20.3.12/coreui-free-angular-admin-template
 /frontend/MW/node_modules
+/backend/Middleware/.vs
+/backend/Middleware/MiddlewareTool/bin/Debug/net8.0
+/backend/Middleware/MiddlewareTool/obj
+/backend/Middleware/MiddlewareTool/Properties
+/backend/Middleware/MiddlewareTool.Entities/bin/Debug/net8.0
+/backend/Middleware/MiddlewareTool.Entities/obj

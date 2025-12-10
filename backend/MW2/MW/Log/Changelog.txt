@@ -1,1 +1,0 @@
-﻿dotnet ef dbcontext scaffold "Server=LTTRI\SQL2019;Database=MiddlewareTool;User ID=sa;Password=@bc123;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer --output-dir Entities --context-dir Data --context AppDbContext --nullable
