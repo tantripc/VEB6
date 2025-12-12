@@ -1,4 +1,5 @@
-﻿using MiddlewareTool.Common;
+﻿using AutoMapper;
+using MiddlewareTool.Common;
 using MiddlewareTool.Entities;
 using MiddlewareTool.Entities.Models;
 using MiddlewareTool.Logs;
@@ -408,7 +409,10 @@ namespace MiddlewareTool.Business.Concrete
         #endregion
 
         #region Constructors
-        public BaseBusiness(AppDbContext unitOfWork) => this.UnitOfWork = unitOfWork;
+        public BaseBusiness(AppDbContext unitOfWork)
+        {
+            this.UnitOfWork = unitOfWork;
+        }
 
         #endregion
 
@@ -442,7 +446,7 @@ namespace MiddlewareTool.Business.Concrete
                 Logging.LogError($"{_service}-{method}", ex);
                 if (insertDB)
                 {
-                    var systemLog = new SystemLogDto()
+                    var systemLog = new SystemLog()
                     {
                         LogId = Guid.NewGuid(),
                         UserId = "system",
@@ -453,7 +457,6 @@ namespace MiddlewareTool.Business.Concrete
                         FuncDateTime = DateTime.Now,
                         WSName = ""
                     };
-                    systemLog.SetDefaultValueInsert();
                     this.UnitOfWork.SystemLogs.Add(systemLog);
                 }
             }

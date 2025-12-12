@@ -18,7 +18,9 @@
   <ItemGroup>
     <Compile Include="Concrete\BaseBusiness\BaseBusiness.cs" />
     <Compile Include="Concrete\UserMgmtBusiness\UserInfoBusiness.cs" />
+    <Compile Include="Concrete\UserMgmtBusiness\UserPermissionDeptBusiness.cs" />
     <Compile Include="Interface\IUserMgmtBusiness\IUserInfoBusiness.cs" />
+    <Compile Include="Interface\IUserMgmtBusiness\IUserPermissionDeptBusiness.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,6 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="16.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
   </ItemGroup>
 

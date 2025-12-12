@@ -355,7 +355,8 @@ namespace MiddlewareTool.Business.Concrete
                             item.UpdateBy = userName;
                             item.UpdateDate = DateTime.Now;
                         }
-                        result = await this.UnitOfWork.UpdateToListAsync(LstEntity);
+                        this.UnitOfWork.UserInfos.UpdateRange(LstEntity);
+                        result = this.UnitOfWork.SaveChanges() > 0;
                     }
                 }
             }

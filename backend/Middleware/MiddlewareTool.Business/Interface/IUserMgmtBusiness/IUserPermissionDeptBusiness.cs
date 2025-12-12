@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using static MiddlewareTool.Dto.UserMgmtDto;
+﻿using static MiddlewareTool.Dto.UserMgmtDto;
 
 namespace MiddlewareTool.Business.Interface
 {

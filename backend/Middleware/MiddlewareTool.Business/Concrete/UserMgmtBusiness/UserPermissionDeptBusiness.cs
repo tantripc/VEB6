@@ -1,28 +1,24 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using MiddlewareTool.Business.Interface;
 using MiddlewareTool.Entities;
-using MiddlewareTool.Repository;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
+using MiddlewareTool.Entities.Models;
 using System.Reflection;
-using System.Threading.Tasks;
 using static MiddlewareTool.Dto.UserMgmtDto;
 
 namespace MiddlewareTool.Business.Concrete
 {
     public class UserPermissionDeptBusiness : BaseBusiness, IUserPermissionDeptBusiness
     {
-        public UserPermissionDeptBusiness(IUnitOfWork unitOfWork) : base(unitOfWork) { }
+        public UserPermissionDeptBusiness(AppDbContext unitOfWork) : base(unitOfWork) { }
         public async Task<List<Guid>> GetListDepartmentByUserName(string userName)
         {
             var results = new List<Guid>();
             try
             {
-                var data = await this.UnitOfWork.GetAll<UserInfo>()
+                var data = await this.UnitOfWork.UserInfos
                         .Where(x => x.UserId == userName && x.ActiveFlag == STATUS_ACTIVE)
-                    .Join(this.UnitOfWork.GetAll<UserPermissionDept>()
+                    .Join(this.UnitOfWork.UserPermissionDepts
                         .Where(x => x.ActiveFlag == STATUS_ACTIVE),
                         u => u.Id,
                         upd => upd.UserId,
@@ -36,9 +32,9 @@ namespace MiddlewareTool.Business.Concrete
         {
             try
             {
-                var data = await this.UnitOfWork.GetAll<UserInfo>()
+                var data = await this.UnitOfWork.UserInfos
                         .Where(x => x.UserId == userName && x.ActiveFlag == STATUS_ACTIVE)
-                    .Join(this.UnitOfWork.GetAll<UserPermissionDept>()
+                    .Join(this.UnitOfWork.UserPermissionDepts
                         .Where(x => x.ActiveFlag == STATUS_ACTIVE),
                         u => u.Id,
                         upd => upd.UserId,
@@ -52,10 +48,11 @@ namespace MiddlewareTool.Business.Concrete
         {
             try
             {
-                var iquery = await this.UnitOfWork.GetSingleAsync<UserPermissionDept>(x => x.Id == userId && x.ActiveFlag == STATUS_ACTIVE);
+                var iquery = await this.UnitOfWork.UserPermissionDepts.SingleAsync(x => x.Id == userId && x.ActiveFlag == STATUS_ACTIVE);
                 if (iquery != null)
                 {
-                    return Mapper.Map<UserPermissionDeptDto>(iquery);
+                    var dto = Mapper.Map<UserPermissionDeptDto>(iquery);
+                    return dto;
                 }
             }
             catch (Exception ex) { this.LogError(MethodBase.GetCurrentMethod().DeclaringType.Name, ex); }
@@ -65,9 +62,9 @@ namespace MiddlewareTool.Business.Concrete
         {
             try
             {
-                return await this.UnitOfWork.GetAll<UserPermissionDept>()
+                return await this.UnitOfWork.UserPermissionDepts
                     .Where(x => x.UserId == userId && x.ActiveFlag == STATUS_ACTIVE)
-                    .Join(this.UnitOfWork.GetAll<Department>()
+                    .Join(this.UnitOfWork.Departments
                     .Where(x => x.ActiveFlag == STATUS_ACTIVE),
                         ud => ud.DepartmentId,
                         d => d.Id,
@@ -102,7 +99,7 @@ namespace MiddlewareTool.Business.Concrete
                         UpdateBy = userName
                     });
                 }
-                var add = await this.UnitOfWork.InsertToListAsync(LstEntity);
+                var add = this.UnitOfWork.UserPermissionDepts.AddRangeAsync(LstEntity);
                 if (add != null) { result = true; }
             }
             catch (Exception ex) { this.LogError(MethodBase.GetCurrentMethod().DeclaringType.Name, ex); }
@@ -128,13 +125,14 @@ namespace MiddlewareTool.Business.Concrete
             bool result = false;
             try
             {
-                var entity = this.UnitOfWork.GetSingle<UserPermissionDept>(x => x.UserId == dto.UserId && x.ActiveFlag == STATUS_ACTIVE);
+                var entity = this.UnitOfWork.UserPermissionDepts.Single(x => x.UserId == dto.UserId && x.ActiveFlag == STATUS_ACTIVE);
                 if (entity != null)
                 {
                     entity.DepartmentId = dto.DepartmentId;
                     entity.UpdateDate = DateTime.Now;
                     entity.UpdateBy = dto.UpdateBy;
-                    result = await this.UnitOfWork.UpdateAsync(entity);
+                    this.UnitOfWork.Update(entity);
+                    result = this.UnitOfWork.SaveChanges() > 0;
                 }
             }
             catch (Exception ex) { LogError(MethodBase.GetCurrentMethod().DeclaringType.Name, ex); }
@@ -145,12 +143,13 @@ namespace MiddlewareTool.Business.Concrete
             bool result = false;
             try
             {
-                var lstDel = this.UnitOfWork.GetAll<UserPermissionDept>()
+                var lstDel = this.UnitOfWork.UserPermissionDepts
                     .Where(x => x.UserId == userId && x.ActiveFlag == STATUS_ACTIVE)
                     .ToList();
                 if (lstDel.Count > 0)
                 {
-                    result = await this.UnitOfWork.DeleteToListAsync(lstDel, true);
+                    this.UnitOfWork.UserPermissionDepts.RemoveRange(lstDel);
+                    result = this.UnitOfWork.SaveChanges() > 0;
                 }
                 else { result = true; }
             }
